@@ -1,5 +1,16 @@
-// import logo from './logo.svg';
-// import './App.css';
+import React from 'react'
+import Header from "./components/Header";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Portfolio from "./components/Portfolio";
+import Footer from ".omponents/Footer";
+import './App.css';
+import Nav from './components/Nav';
+
+
+
+
+
 
 // function App() {
 //   return (
@@ -24,8 +35,6 @@
 
 // export default App;
 
-import React from 'react'
-import About from './components/About';
 // import Footer from './components/Footer';
 // import Header from './components/Header';
 // import Navigation from './components/Navigation';
@@ -36,7 +45,10 @@ function App() {
   return (
     <div>
       <main>
-        <About></About>
+        <header>
+          <Nav></Nav>
+        </header>
+        <<About></About>>
       </main>
     </div>
   );
