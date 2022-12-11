@@ -10,10 +10,11 @@ function Nav(props) {
     setContactSelected,
   } = props;
 
-  useEffect(() => {
-    document.title = capitalizeFirstLetter(currentCategory.name);
-  }, [currentCategory]);
+  // useEffect(() => {
+  //   document.title = capitalizeFirstLetter(currentCategory.name);
+  // }, [currentCategory]);
 
+  // eslint-disable-next-line
   return (
     <header className="flex-row px-1">
       <h2>

@@ -8,7 +8,6 @@ function Footer() {
           <ul>
             <a href="https://github.com/n-roz">
               <li className="logo">
-                <VscGithubAlt />
               </li>
             </a>
           </ul>
