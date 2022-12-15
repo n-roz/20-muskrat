@@ -32,7 +32,45 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+body {
+  background-color: #86bbd8;
+}
+
+h1 {
+  color: #2f4858;
+
+}
+
+p {
+  color: #2f4858
+}
+
+h2 {
+  color: #2f4858;
+}
+
+h3 {
+  color: #2f4858;
+}
+
+.main-body {
+  background-color: #003049;
+}
+
+.cards {
+  background-color: #f26419;
+}
+
+.logos {
+  align-items: center;
+}
+
+main {
+  background-color: #f6ae2d;
 }

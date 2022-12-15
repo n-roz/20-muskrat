@@ -1,69 +1,46 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
-import { validateEmail } from './utils/helpers';
-
-function Contact() {
-    const [email, setEmail] = useState("");
-    const [userName, setUserName] = useState("");
-    const [message, setMessage] = useState("");
-    const [errorMessage, setErrorMessage] = useState("");
-
-    const handleInputChange = (e) => {
-        const { target } = e;
-        const inputType = target.name;
-        const inputValue = target.value;
-
-        if (inputType === "email") {
-            setEmail(inputValue);
-        } else if (inputType === "userName") {
-            setUserName(inputValue);
-        } else {
-            setMessage(inputValue);
-        }
-    };
-
-    const handleFormSubmit = (e) => {
-        e.preventDefault();
-
-        if (!validateEmail(email) || !userName) {
-            setErrorMessage("Email or Name is invalid");
-            return;
-        }
-
-        if (!setMessage(message)) {
-            setErrorMessage(`Message is required.`);
-            return;
-        }
-        setUserName("");
-        setMessage("");
-        setEmail("");
-    };
-
-    return (
-        <section>
-            <h1 data-testid="h1tag">Contact me</h1>
-            <form id="contact-form" onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="name">Name:</label>
-                    <input type="text" name="name" defaultValue={name} onBlur={handleChange} />
-                </div>
-                <div>
-                    <label htmlFor="email">Email address:</label>
-                    <input type="email" name="email" defaultValue={email} onBlur={handleChange} />
-                </div>
-                <div>
-                    <label htmlFor="message">Message:</label>
-                    <textarea name="message" rows="5" defaultValue={message} onBlur={handleChange} />
-                </div>
-                {errorMessage && (
-                    <div>
-                        <p className="error-text">{errorMessage}</p>
-                    </div>
-                )}
-                <button data-testid="button" type="submit">Submit</button>
-            </form>
-        </section>
-    );
+const Contact = () => {
+  const [formStatus, setFormStatus] = useState('Send')
+  const onSubmit = (e) => {
+    e.preventDefault()
+    setFormStatus('Submitting...')
+    const { name, email, message } = e.target.elements
+    let conFom = {
+      name: name.value,
+      email: email.value,
+      message: message.value,
+    }
+    console.log(conFom)
+  }
+  return (
+    <div className="container mt-5">
+      <h2 className="mb-3">Contact</h2>
+      <form onSubmit={onSubmit}>
+        <div className="mb-3">
+          <label className="form-label" htmlFor="name">
+            Name
+          </label>
+          <input className="form-control" type="text" id="name" required />
+        </div>
+        <div className="mb-3">
+          <label className="form-label" htmlFor="email">
+            Email
+          </label>
+          <input className="form-control" type="email" id="email" required />
+        </div>
+        <div className="mb-3">
+          <label className="form-label" htmlFor="message">
+            Message
+          </label>
+          <textarea className="form-control" id="message" required />
+        </div>
+        <button className="btn btn-danger" type="submit">
+          {formStatus}
+        </button>
+      </form>
+    </div>
+  )
 }
 
 export default Contact;
